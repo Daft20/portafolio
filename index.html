@@ -90,6 +90,14 @@ footer p { margin: 0; color: var(--muted); max-width: 52ch; }
 .plan .cta { justify-content: center; width: 100%; margin-top: 4px; }
 .plan .cta.ghost { background: transparent; color: var(--fg); border: 1.5px solid var(--line); }
 .plans-note { color: var(--muted); font-size: 14px; margin: 16px 0 0; max-width: 60ch; }
+.price sup { font-size: .4em; vertical-align: top; position: relative; top: .35em; margin-left: 3px; letter-spacing: 0; font-weight: 700; }
+.pervideo { margin-top: -8px; color: var(--muted); font-size: 14px; }
+.pervideo.strong { color: var(--ember); font-weight: 700; }
+.sticky { display: none; }
+@media (max-width: 760px) {
+  .sticky { display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; justify-content: center; align-items: center; gap: 8px; background: var(--ember); color: var(--ember-fg); font: 700 17px/1 var(--font-body); text-decoration: none; min-height: 56px; padding: 0 16px calc(env(safe-area-inset-bottom, 0px)) 16px; box-shadow: 0 -6px 24px rgba(0,0,0,.35); }
+  .wrap { padding-bottom: 96px; }
+}
 @media (max-width: 760px) { .plans { grid-template-columns: minmax(0, 1fr); gap: 22px; } }
 @media (max-width: 760px) { .pairs { grid-template-columns: minmax(0, 1fr); } }
 @media (max-width: 900px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 16px; } }
@@ -177,25 +185,28 @@ footer p { margin: 0; color: var(--muted); max-width: 52ch; }
   <div class="plans">
     <article class="plan">
       <div class="pname">Básico</div>
-      <div class="price">$120</div>
+      <div class="price">$119<sup>.99</sup></div>
+      <div class="pervideo">≈ $24 por video</div>
       <ul><li><b>5 videos</b></li><li><b>2 flyers</b> de bonus<small>Estáticos</small></li></ul>
-      <a class="cta ghost" href="https://wa.me/13475440273?text=Hola%20Daft%2C%20vi%20tu%20portafolio%20y%20me%20interesa%20el%20paquete%20B%C3%A1sico." target="_blank" rel="noopener">Quiero el Básico</a>
+      <a class="cta ghost" href="https://wa.me/13475440273?text=Hola%20Daft%2C%20vi%20tu%20portafolio%20y%20me%20interesa%20el%20paquete%20B%C3%A1sico%20(%24119.99)." target="_blank" rel="noopener">Quiero el Básico</a>
     </article>
     <article class="plan">
       <div class="pname">Medio</div>
-      <div class="price">$190</div>
+      <div class="price">$189<sup>.99</sup></div>
+      <div class="pervideo">≈ $24 por video</div>
       <ul><li><b>8 videos</b></li><li><b>4 flyers</b> de bonus<small>Uno de ellos animado</small></li></ul>
-      <a class="cta ghost" href="https://wa.me/13475440273?text=Hola%20Daft%2C%20vi%20tu%20portafolio%20y%20me%20interesa%20el%20paquete%20Medio." target="_blank" rel="noopener">Quiero el Medio</a>
+      <a class="cta ghost" href="https://wa.me/13475440273?text=Hola%20Daft%2C%20vi%20tu%20portafolio%20y%20me%20interesa%20el%20paquete%20Medio%20(%24189.99)." target="_blank" rel="noopener">Quiero el Medio</a>
     </article>
     <article class="plan best">
       <div class="badge">Mejor precio</div>
       <div class="pname">Completo</div>
-      <div class="price">$220</div>
+      <div class="price">$219<sup>.99</sup></div>
+      <div class="pervideo strong">≈ $20 por video · 17% menos que en el Básico</div>
       <ul><li><b>11 videos</b></li><li><b>6 flyers</b> de bonus<small>Dos de ellos animados</small></li></ul>
-      <a class="cta" href="https://wa.me/13475440273?text=Hola%20Daft%2C%20vi%20tu%20portafolio%20y%20me%20interesa%20el%20paquete%20Completo." target="_blank" rel="noopener">Quiero el Completo</a>
+      <a class="cta" href="https://wa.me/13475440273?text=Hola%20Daft%2C%20vi%20tu%20portafolio%20y%20me%20interesa%20el%20paquete%20Completo%20(%24219.99)." target="_blank" rel="noopener">Quiero el Completo</a>
     </article>
   </div>
-  <p class="plans-note">¿Quieres otra cantidad o un flyer animado extra? Escríbeme y lo cotizamos.</p>
+  <p class="plans-note">Los flyers del bonus no tienen costo extra. Al tocar un botón se abre WhatsApp, sin compromiso. ¿Quieres otra cantidad o un flyer animado extra? Escríbeme y lo cotizamos.</p>
 
   <h2>Lo que hago</h2>
   <ul class="hacer">
@@ -213,6 +224,8 @@ footer p { margin: 0; color: var(--muted); max-width: 52ch; }
     <p>También en Instagram: @daftexplica</p>
   </footer>
 </div>
+
+<a class="sticky" href="https://wa.me/13475440273?text=Hola%20Daft%2C%20vi%20tu%20portafolio%20y%20quiero%20un%20anuncio%20para%20mi%20negocio." target="_blank" rel="noopener">Pedir por WhatsApp</a>
 
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Flyer en grande"><button class="close" type="button" id="lbClose">Cerrar</button><img id="lbImg" alt=""></div>
 
