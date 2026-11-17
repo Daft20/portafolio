@@ -77,6 +77,20 @@ footer { margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--line);
 footer h2 { margin: 0; }
 .handle { font: 700 clamp(24px, 5vw, 40px)/1.1 var(--font-display); }
 footer p { margin: 0; color: var(--muted); max-width: 52ch; }
+.plans { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; align-items: stretch; }
+.plan { position: relative; display: grid; gap: 14px; align-content: start; min-width: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 22px 20px; }
+.plan.best { border: 2px solid var(--ember); }
+.plan .badge { position: absolute; top: -13px; left: 20px; background: var(--ember); color: var(--ember-fg); font: 700 12px/1 var(--font-body); letter-spacing: .08em; text-transform: uppercase; padding: 7px 10px; border-radius: 999px; }
+.pname { font: 500 13px/1 var(--font-body); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.price { font: 800 clamp(40px, 6vw, 52px)/1 var(--font-display); letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+.plan ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.plan li { padding-top: 8px; border-top: 1px solid var(--line); font-size: 16px; }
+.plan li b { font-weight: 700; }
+.plan li small { display: block; color: var(--muted); font-size: 14px; }
+.plan .cta { justify-content: center; width: 100%; margin-top: 4px; }
+.plan .cta.ghost { background: transparent; color: var(--fg); border: 1.5px solid var(--line); }
+.plans-note { color: var(--muted); font-size: 14px; margin: 16px 0 0; max-width: 60ch; }
+@media (max-width: 760px) { .plans { grid-template-columns: minmax(0, 1fr); gap: 22px; } }
 @media (max-width: 760px) { .pairs { grid-template-columns: minmax(0, 1fr); } }
 @media (max-width: 900px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 16px; } }
 @media (max-width: 520px) { .hacer { grid-template-columns: 1fr; } .work h3 { font-size: 19px; } .work p { font-size: 14px; } }
@@ -156,6 +170,32 @@ footer p { margin: 0; color: var(--muted); max-width: 52ch; }
       <div class="meta"><div class="kind">Belleza</div><h3>Aloe Glow · Farmasi</h3><p>Flyer para una distribuidora de productos de belleza.</p></div>
     </article>
   </div>
+
+  <h2>Paquetes</h2>
+  <p class="sub">Cada video dura hasta 30 segundos e incluye 1 revisión. Los flyers del bonus son estáticos.</p>
+
+  <div class="plans">
+    <article class="plan">
+      <div class="pname">Básico</div>
+      <div class="price">$120</div>
+      <ul><li><b>5 videos</b></li><li><b>2 flyers</b> de bonus</li></ul>
+      <a class="cta ghost" href="https://wa.me/13475440273?text=Hola%20Daft%2C%20vi%20tu%20portafolio%20y%20me%20interesa%20el%20paquete%20B%C3%A1sico." target="_blank" rel="noopener">Quiero el Básico</a>
+    </article>
+    <article class="plan">
+      <div class="pname">Medio</div>
+      <div class="price">$190</div>
+      <ul><li><b>8 videos</b></li><li><b>4 flyers</b> de bonus</li></ul>
+      <a class="cta ghost" href="https://wa.me/13475440273?text=Hola%20Daft%2C%20vi%20tu%20portafolio%20y%20me%20interesa%20el%20paquete%20Medio." target="_blank" rel="noopener">Quiero el Medio</a>
+    </article>
+    <article class="plan best">
+      <div class="badge">Mejor precio</div>
+      <div class="pname">Completo</div>
+      <div class="price">$220</div>
+      <ul><li><b>11 videos</b></li><li><b>6 flyers</b> de bonus<small>Uno de ellos animado</small></li></ul>
+      <a class="cta" href="https://wa.me/13475440273?text=Hola%20Daft%2C%20vi%20tu%20portafolio%20y%20me%20interesa%20el%20paquete%20Completo." target="_blank" rel="noopener">Quiero el Completo</a>
+    </article>
+  </div>
+  <p class="plans-note">¿Quieres otra cantidad o un flyer animado extra? Escríbeme y lo cotizamos.</p>
 
   <h2>Lo que hago</h2>
   <ul class="hacer">
