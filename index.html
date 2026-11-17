@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>html{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Portafolio Daft</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&display=swap">
+<style>
+/* Concepto: tira de contactos de cine. Seis cuadros verticales 9:16 sobre fondo oscuro; el color solo aparece como brasa naranja en lo que se puede tocar. */
+:root {
+  --bg: #E7EAEC;
+  --surface: #F5F7F8;
+  --fg: #0F1214;
+  --muted: #4E575D;
+  --line: #C9CFD3;
+  --ember: #C2410C;
+  --ember-fg: #FFFFFF;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "DM Sans", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0B0D0F; --surface: #14181B; --fg: #EEF0F1; --muted: #9AA4AA; --line: #262C31; --ember: #FF8A3D; --ember-fg: #1A0E05;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0B0D0F; --surface: #14181B; --fg: #EEF0F1; --muted: #9AA4AA; --line: #262C31; --ember: #FF8A3D; --ember-fg: #1A0E05;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font: 400 16px/1.55 var(--font-body); }
+.wrap { max-width: 1120px; margin: 0 auto; padding-block: 48px 64px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+header { display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; padding-bottom: 40px; border-bottom: 1px solid var(--line); }
+.tag { font: 500 13px/1 var(--font-body); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+h1 { font: 800 clamp(40px, 8vw, 88px)/.95 var(--font-display); letter-spacing: -.03em; margin: 0; text-wrap: balance; overflow-wrap: break-word; min-width: 0; }
+h1 em { font-style: normal; color: var(--ember); }
+.lead { font-size: clamp(18px, 2.4vw, 22px); max-width: 38ch; color: var(--muted); margin: 0; text-wrap: pretty; }
+.lead b { color: var(--fg); font-weight: 500; }
+.cta { display: inline-flex; width: fit-content; align-items: center; gap: 10px; background: var(--ember); color: var(--ember-fg); padding: 12px 20px; border-radius: 999px; font-weight: 700; text-decoration: none; }
+.cta:focus-visible, a:focus-visible, video:focus-visible, button:focus-visible { outline: 3px solid var(--ember); outline-offset: 3px; }
+h2 { font: 700 clamp(26px, 4vw, 36px)/1.1 var(--font-display); letter-spacing: -.02em; margin: 56px 0 8px; }
+.sub { color: var(--muted); margin: 0 0 28px; }
+.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px 24px; }
+.work { display: grid; gap: 14px; align-content: start; min-width: 0; }
+.frame { position: relative; aspect-ratio: 9 / 16; max-width: 100%; background: #000; border-radius: 14px; overflow: hidden; border: 1px solid var(--line); }
+.frame video { width: 100%; height: 100%; display: block; object-fit: cover; background: #000; }
+.play { position: absolute; inset: 0; display: grid; place-items: center; background: linear-gradient(to top, rgba(0,0,0,.55), rgba(0,0,0,0) 45%); border: 0; cursor: pointer; padding: 0; color: #fff; }
+.play span { width: 64px; height: 64px; border-radius: 50%; background: var(--ember); color: var(--ember-fg); display: grid; place-items: center; font-size: 22px; padding-left: 4px; }
+.frame.on .play { display: none; }
+.meta { display: grid; gap: 4px; }
+.kind { font: 500 12px/1 var(--font-body); letter-spacing: .12em; text-transform: uppercase; color: var(--ember); }
+.work h3 { font: 700 22px/1.15 var(--font-display); margin: 0; letter-spacing: -.01em; }
+.work p { margin: 0; color: var(--muted); font-size: 15px; }
+.dur { font-variant-numeric: tabular-nums; color: var(--muted); font-size: 14px; }
+.pairs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px 28px; }
+.pair { display: grid; gap: 14px; align-content: start; min-width: 0; }
+.duo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; align-items: end; }
+.duo figure { margin: 0; display: grid; gap: 8px; min-width: 0; }
+.duo figcaption { font: 500 12px/1 var(--font-body); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.frame.still img { width: 100%; height: 100%; display: block; object-fit: cover; }
+.frame.still { cursor: zoom-in; background: var(--surface); }
+.frame.still.wide img { object-fit: contain; }
+.frame.still button.zoom { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; padding: 0; background: transparent; cursor: zoom-in; }
+.frame.still .hint { position: absolute; right: 8px; bottom: 8px; background: rgba(0,0,0,.65); color: #fff; font: 500 12px/1 var(--font-body); padding: 7px 9px; border-radius: 999px; pointer-events: none; }
+.lightbox { position: fixed; inset: 0; z-index: 50; display: none; place-items: center; background: rgba(0,0,0,.92); padding: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(16px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); }
+.lightbox.open { display: grid; }
+.lightbox img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 8px; }
+.lightbox .close { position: absolute; top: max(12px, env(safe-area-inset-top, 0px)); right: max(12px, env(safe-area-inset-right, 0px)); min-width: 44px; min-height: 44px; border-radius: 999px; border: 0; background: var(--ember); color: var(--ember-fg); font: 700 15px/1 var(--font-body); padding: 0 16px; cursor: pointer; }
+.hacer { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 32px; margin: 0; padding: 0; list-style: none; max-width: 760px; }
+.hacer li { padding: 14px 0; border-top: 1px solid var(--line); }
+.hacer b { display: block; font-weight: 700; }
+.hacer span { color: var(--muted); font-size: 15px; }
+footer { margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--line); display: grid; gap: 12px; }
+footer h2 { margin: 0; }
+.handle { font: 700 clamp(24px, 5vw, 40px)/1.1 var(--font-display); }
+footer p { margin: 0; color: var(--muted); max-width: 52ch; }
+@media (max-width: 760px) { .pairs { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 900px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 16px; } }
+@media (max-width: 520px) { .hacer { grid-template-columns: 1fr; } .work h3 { font-size: 19px; } .work p { font-size: 14px; } }
+@media (prefers-reduced-motion: no-preference) { .play span { transition: transform .15s ease; } .play:hover span { transform: scale(1.08); } }
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="tag">Portafolio · Venezuela</div>
+    <h1>Daft<br><em>edita anuncios</em> que se miran hasta el final.</h1>
+    <p class="lead"><b>Reels, anuncios verticales y flyers animados</b> para negocios locales: barberías, restaurantes, gimnasios y tiendas.</p>
+    <a class="cta" href="https://wa.me/13475440273?text=Hola%20Daft%2C%20vi%20tu%20portafolio%20y%20quiero%20un%20anuncio%20para%20mi%20negocio." target="_blank" rel="noopener">Hablemos de tu anuncio</a>
+  </header>
+
+  <h2>Anuncios en video</h2>
+  <p class="sub">Toca un video para verlo. Todos son verticales, hechos para Instagram y TikTok.</p>
+
+  <div class="grid" id="trabajos">
+    <article class="work">
+      <div class="frame"><video preload="none" playsinline poster="media/avilagym.jpg" src="media/avilagym.mp4"></video><button class="play" aria-label="Reproducir Ávila Gym"><span>▶</span></button></div>
+      <div class="meta"><div class="kind">Gimnasio</div><h3>Ávila Gym</h3><p>Anuncio de impacto con cortes al ritmo de la música y textos grandes.</p><div class="dur">0:36</div></div>
+    </article>
+    <article class="work">
+      <div class="frame"><video preload="none" playsinline poster="media/terraza.jpg" src="media/terraza.mp4"></video><button class="play" aria-label="Reproducir La Terraza"><span>▶</span></button></div>
+      <div class="meta"><div class="kind">Restaurante y bar</div><h3>La Terraza</h3><p>Anuncio de ambiente nocturno para un restaurante y bar de Barinas.</p><div class="dur">0:30</div></div>
+    </article>
+    <article class="work">
+      <div class="frame"><video preload="none" playsinline poster="media/barberia.jpg" src="media/barberia.mp4"></video><button class="play" aria-label="Reproducir Barbería Gerónimo"><span>▶</span></button></div>
+      <div class="meta"><div class="kind">Barbería</div><h3>Barbería Gerónimo</h3><p>Anuncio explicativo con animación de personajes y pantallas de Instagram.</p><div class="dur">1:32</div></div>
+    </article>
+    <article class="work">
+      <div class="frame"><video preload="none" playsinline poster="media/unas.jpg" src="media/unas.mp4"></video><button class="play" aria-label="Reproducir Uñas Misu"><span>▶</span></button></div>
+      <div class="meta"><div class="kind">Manicurista</div><h3>Uñas Misu</h3><p>Anuncio con personaje animado y agenda de citas en pantalla.</p><div class="dur">1:35</div></div>
+    </article>
+    <article class="work">
+      <div class="frame"><video preload="none" playsinline poster="media/droid.jpg" src="media/droid.mp4"></video><button class="play" aria-label="Reproducir Droid System"><span>▶</span></button></div>
+      <div class="meta"><div class="kind">Tienda de celulares</div><h3>Droid System</h3><p>Reel para una tienda virtual, con la mascota de la marca y animación de pantallas.</p><div class="dur">0:50</div></div>
+    </article>
+    <article class="work">
+      <div class="frame"><video preload="none" playsinline poster="media/tequenera.jpg" src="media/tequenera.mp4"></video><button class="play" aria-label="Reproducir La Tequeñera"><span>▶</span></button></div>
+      <div class="meta"><div class="kind">Comida</div><h3>La Tequeñera</h3><p>Anuncio que compara dos opciones de tequeños con gráficos animados.</p><div class="dur">1:09</div></div>
+    </article>
+  </div>
+
+  <h2>Flyers estáticos y animados</h2>
+  <p class="sub">Cada flyer en dos versiones: la imagen para el feed y la animada para historias y Reels.</p>
+
+  <div class="pairs">
+    <article class="pair">
+      <div class="duo">
+        <figure><div class="frame still wide"><img src="media/fl-droidA-est.jpg" alt="Flyer de ofertas de Droid System" loading="lazy"><button class="zoom" type="button" data-full="media/fl-droidA-est.jpg" data-alt="Flyer de ofertas de Droid System" aria-label="Ver en grande: Flyer de ofertas de Droid System"></button><span class="hint">Ampliar</span></div><figcaption>Estático</figcaption></figure>
+        <figure><div class="frame"><video preload="none" playsinline muted poster="media/fl-droidA-ani.jpg" src="media/fl-droidA-ani.mp4"></video><button class="play" aria-label="Reproducir flyer animado de ofertas"><span>▶</span></button></div><figcaption>Animado · 0:10</figcaption></figure>
+      </div>
+      <div class="meta"><div class="kind">Tienda de celulares</div><h3>Droid System · Ofertas</h3><p>Flyer de ofertas con iPhone y PS5, con precios y datos de entrega.</p></div>
+    </article>
+    <article class="pair">
+      <div class="duo">
+        <figure><div class="frame still"><img src="media/fl-droidB-est.jpg" alt="Flyer de lista de precios de Droid System" loading="lazy"><button class="zoom" type="button" data-full="media/fl-droidB-est.jpg" data-alt="Flyer de lista de precios de Droid System" aria-label="Ver en grande: Flyer de lista de precios de Droid System"></button><span class="hint">Ampliar</span></div><figcaption>Estático</figcaption></figure>
+        <figure><div class="frame"><video preload="none" playsinline muted poster="media/fl-droidB-ani.jpg" src="media/fl-droidB-ani.mp4"></video><button class="play" aria-label="Reproducir flyer animado de lista de precios"><span>▶</span></button></div><figcaption>Animado · 0:10</figcaption></figure>
+      </div>
+      <div class="meta"><div class="kind">Tienda de celulares</div><h3>Droid System · Lista de precios</h3><p>Lista de precios completa, ordenada y fácil de leer en el celular.</p></div>
+    </article>
+    <article class="pair">
+      <div class="duo">
+        <figure><div class="frame still"><img src="media/fl-shoes-est.jpg" alt="Flyer de Black Friday de calzado" loading="lazy"><button class="zoom" type="button" data-full="media/fl-shoes-est.jpg" data-alt="Flyer de Black Friday de calzado" aria-label="Ver en grande: Flyer de Black Friday de calzado"></button><span class="hint">Ampliar</span></div><figcaption>Estático</figcaption></figure>
+        <figure><div class="frame"><video preload="none" playsinline muted poster="media/fl-shoes-ani.jpg" src="media/fl-shoes-ani.mp4"></video><button class="play" aria-label="Reproducir flyer animado de Black Friday"><span>▶</span></button></div><figcaption>Animado · 0:07</figcaption></figure>
+      </div>
+      <div class="meta"><div class="kind">Calzado</div><h3>Black Friday · Zapatos</h3><p>Flyer de prueba para una tienda de calzado, con chispas y zapatos en movimiento.</p></div>
+    </article>
+    <article class="pair">
+      <div class="duo">
+        <figure><div class="frame still"><img src="media/fl-aloe-est.jpg" alt="Flyer de Aloe Glow" loading="lazy"><button class="zoom" type="button" data-full="media/fl-aloe-est.jpg" data-alt="Flyer de Aloe Glow" aria-label="Ver en grande: Flyer de Aloe Glow"></button><span class="hint">Ampliar</span></div><figcaption>Estático</figcaption></figure>
+        <figure><div class="frame"><video preload="none" playsinline muted poster="media/fl-aloe-ani.jpg" src="media/fl-aloe-ani.mp4"></video><button class="play" aria-label="Reproducir flyer animado de Aloe Glow"><span>▶</span></button></div><figcaption>Animado · 0:07</figcaption></figure>
+      </div>
+      <div class="meta"><div class="kind">Belleza</div><h3>Aloe Glow · Farmasi</h3><p>Flyer para una distribuidora de productos de belleza.</p></div>
+    </article>
+  </div>
+
+  <h2>Lo que hago</h2>
+  <ul class="hacer">
+    <li><b>Anuncios verticales</b><span>Reels y TikToks de 30 a 90 segundos para negocios.</span></li>
+    <li><b>Flyers estáticos y animados</b><span>El mismo diseño para el feed y para historias.</span></li>
+    <li><b>Animación de pantallas</b><span>Perfiles, agendas y apps que se mueven en el video.</span></li>
+    <li><b>Voz y música</b><span>Locución y música elegidas para el tono del negocio.</span></li>
+    <li><b>Portadas</b><span>Imagen de portada para que el video se vea en el perfil.</span></li>
+  </ul>
+
+  <footer id="contacto">
+    <h2>Escríbeme</h2>
+    <a class="cta" href="https://wa.me/13475440273?text=Hola%20Daft%2C%20vi%20tu%20portafolio%20y%20quiero%20un%20anuncio%20para%20mi%20negocio." target="_blank" rel="noopener">Escribir por WhatsApp</a>
+    <div class="handle">+1 347 544 0273</div>
+    <p>También en Instagram: @daftexplica</p>
+  </footer>
+</div>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Flyer en grande"><button class="close" type="button" id="lbClose">Cerrar</button><img id="lbImg" alt=""></div>
+
+<script>
+(function () {
+  var frames = document.querySelectorAll('.frame:not(.still)');
+  function pauseOthers(except) {
+    frames.forEach(function (f) { var v = f.querySelector('video'); if (v !== except && !v.paused) v.pause(); });
+  }
+  frames.forEach(function (f) {
+    var v = f.querySelector('video'), b = f.querySelector('.play');
+    b.addEventListener('click', function () {
+      pauseOthers(v);
+      f.classList.add('on');
+      v.controls = true;
+      var p = v.play(); if (p && p.catch) p.catch(function () {});
+    });
+    v.addEventListener('play', function () { pauseOthers(v); f.classList.add('on'); v.controls = true; });
+  });
+  var lb = document.getElementById('lightbox'), lbImg = document.getElementById('lbImg'), lbClose = document.getElementById('lbClose'), lastBtn = null;
+  function openLb(btn) { lastBtn = btn; lbImg.src = btn.getAttribute('data-full'); lbImg.alt = btn.getAttribute('data-alt') || ''; lb.classList.add('open'); lbClose.focus(); }
+  function closeLb() { lb.classList.remove('open'); lbImg.removeAttribute('src'); if (lastBtn) lastBtn.focus(); }
+  document.querySelectorAll('button.zoom').forEach(function (b) { b.addEventListener('click', function () { openLb(b); }); });
+  lb.addEventListener('click', function (e) { if (e.target !== lbImg) closeLb(); else closeLb(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && lb.classList.contains('open')) closeLb(); });
+})();
+</script>
+
+</body>
+</html>
