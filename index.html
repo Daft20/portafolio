@@ -98,6 +98,10 @@ footer p { margin: 0; color: var(--muted); max-width: 52ch; }
 .promo span { color: var(--ember); font-weight: 700; font-variant-numeric: tabular-nums; }
 .guarantee { display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: baseline; margin-top: 20px; padding: 14px 16px; border-radius: 12px; background: var(--surface); border: 1px solid var(--line); }
 .guarantee b { color: var(--ember); font: 700 13px/1 var(--font-body); letter-spacing: .12em; text-transform: uppercase; }
+.plan li small.val { color: var(--ember); font-weight: 700; margin-top: 2px; }
+.loose { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 20px; margin-top: 12px; padding: 14px 16px; border-radius: 12px; border: 1px dashed var(--line); }
+.loose b { font: 700 13px/1 var(--font-body); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.loose strong { font-weight: 800; font-variant-numeric: tabular-nums; }
 .sticky { display: none; }
 @media (max-width: 760px) {
   .sticky { display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; justify-content: center; align-items: center; gap: 8px; background: var(--ember); color: var(--ember-fg); font: 700 17px/1 var(--font-body); text-decoration: none; min-height: 56px; padding: 0 16px calc(env(safe-area-inset-bottom, 0px)) 16px; box-shadow: 0 -6px 24px rgba(0,0,0,.35); }
@@ -193,14 +197,14 @@ footer p { margin: 0; color: var(--muted); max-width: 52ch; }
       <div class="pname">Básico</div>
       <div class="price">$119<sup>.99</sup></div>
       <div class="pervideo">≈ $24 por video</div>
-      <ul><li><b>5 videos</b></li><li class="bonus"><b>2 flyers</b> de bonus<small>Estáticos</small></li></ul>
+      <ul><li><b>5 videos</b></li><li class="bonus"><b>2 flyers</b> de bonus<small>Estáticos</small><small class="val">Valor $24 · de regalo</small></li></ul>
       <a class="cta ghost" href="https://wa.me/13475440273?text=Hola%20Daft%2C%20vi%20tu%20portafolio%20y%20me%20interesa%20el%20paquete%20B%C3%A1sico%20(%24119.99)." target="_blank" rel="noopener">Quiero el Básico</a>
     </article>
     <article class="plan">
       <div class="pname">Medio</div>
       <div class="price">$189<sup>.99</sup></div>
       <div class="pervideo">≈ $24 por video</div>
-      <ul><li><b>8 videos</b></li><li class="bonus"><b>4 flyers</b> de bonus<small>Uno de ellos animado</small></li></ul>
+      <ul><li><b>8 videos</b></li><li class="bonus"><b>4 flyers</b> de bonus<small>Uno de ellos animado</small><small class="val">Valor $56 · de regalo</small></li></ul>
       <a class="cta ghost" href="https://wa.me/13475440273?text=Hola%20Daft%2C%20vi%20tu%20portafolio%20y%20me%20interesa%20el%20paquete%20Medio%20(%24189.99)." target="_blank" rel="noopener">Quiero el Medio</a>
     </article>
     <article class="plan best">
@@ -208,11 +212,12 @@ footer p { margin: 0; color: var(--muted); max-width: 52ch; }
       <div class="pname">Completo</div>
       <div class="price">$219<sup>.99</sup></div>
       <div class="pervideo strong">≈ $20 por video · 17% menos que en el Básico</div>
-      <ul><li><b>11 videos</b></li><li class="bonus"><b>6 flyers</b> de bonus<small>Dos de ellos animados</small></li></ul>
+      <ul><li><b>11 videos</b></li><li class="bonus"><b>6 flyers</b> de bonus<small>Dos de ellos animados</small><small class="val">Valor $88 · de regalo</small></li></ul>
       <a class="cta" href="https://wa.me/13475440273?text=Hola%20Daft%2C%20vi%20tu%20portafolio%20y%20me%20interesa%20el%20paquete%20Completo%20(%24219.99)." target="_blank" rel="noopener">Quiero el Completo</a>
     </article>
   </div>
   <div class="guarantee"><b>Garantía</b><span>Si no te convence el primer video, lo rehago.</span></div>
+  <div class="loose"><b>Flyers sueltos</b><span>Estático <strong>$12</strong></span><span>Animado <strong>$20</strong></span></div>
   <p class="plans-note"><span class="bonus">Los flyers del bonus no tienen costo extra. </span>Al tocar un botón se abre WhatsApp, sin compromiso. ¿Quieres otra cantidad o un flyer animado extra? Escríbeme y lo cotizamos.</p>
 
   <h2>Lo que hago</h2>
